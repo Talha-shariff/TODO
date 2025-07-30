@@ -1,10 +1,12 @@
 const express = require('express');
 const { createTodo, updateTodo } = require('./types'); // Zod schemas for validation
 const { todo } = require('./db'); // Mongoose model for Todo collection
+const cors = require('cors');
 const app = express();
-
+//here the cors is been used to allow the backend to send req to all of the local frontends
 // Middleware to parse JSON request bodies
 app.use(express.json());
+app.use(cors());
 
 /**
  * POST /todo
